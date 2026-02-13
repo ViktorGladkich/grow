@@ -16,7 +16,7 @@ export default function Navigation({ activeIndex, goTo }) {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-[100] flex items-center px-6 py-4
+        className="fixed top-0 left-0 right-0 z-100 flex items-center px-6 py-4
           bg-[rgba(10,26,29,0.6)] backdrop-blur-xl
           border-b border-white/5 pointer-events-none"
       >
@@ -54,7 +54,7 @@ export default function Navigation({ activeIndex, goTo }) {
                   ${
                     activeIndex === item.index
                       ? "text-white bg-white/5"
-                      : "text-white/50 hover:text-white hover:bg-white/[0.03]"
+                      : "text-white/50 hover:text-white hover:bg-white/3"
                   }
                 `}
               >
@@ -111,7 +111,7 @@ export default function Navigation({ activeIndex, goTo }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[99] pt-20 px-6 pb-8
+            className="fixed inset-0 z-99 pt-20 px-6 pb-8
               bg-[rgba(10,26,29,0.95)] backdrop-blur-2xl
               flex flex-col md:hidden"
           >
@@ -149,7 +149,7 @@ export default function Navigation({ activeIndex, goTo }) {
                 goTo(10);
                 setMenuOpen(false);
               }}
-              className="w-full py-4 bg-gradient-to-r from-eco-green to-[#7bc919] text-eco-dark
+              className="w-full py-4 bg-linear-to-r from-eco-green to-eco-green-hover text-eco-dark
                 font-bold text-sm uppercase tracking-[0.2em] rounded-2xl cursor-pointer
                 shadow-[0_4px_20px_rgba(148,222,29,0.3)]"
             >
@@ -164,7 +164,7 @@ export default function Navigation({ activeIndex, goTo }) {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-[100]
+        className="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-100
           hidden md:flex flex-col items-center gap-3"
       >
         <motion.span
@@ -181,7 +181,7 @@ export default function Navigation({ activeIndex, goTo }) {
           shadow-[inset_0_0_10px_rgba(0,0,0,0.3)]"
         >
           <motion.div
-            className="w-full bg-gradient-to-b from-eco-green to-[#54c955] rounded-full
+            className="w-full bg-linear-to-b from-eco-green to-[#54c955] rounded-full
               shadow-[0_0_12px_rgba(148,222,29,0.4)]"
             animate={{ height: `${((activeIndex + 1) / TOTAL_SLIDES) * 100}%` }}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -200,7 +200,7 @@ export default function Navigation({ activeIndex, goTo }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed bottom-6 left-1/2 z-[100] flex flex-col items-center gap-1.5
+            className="fixed bottom-6 left-1/2 z-100 flex flex-col items-center gap-1.5
               cursor-pointer animate-scroll-bounce"
             onClick={() => goTo(activeIndex + 1)}
           >

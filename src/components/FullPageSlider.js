@@ -47,7 +47,7 @@ export default function FullPageSlider() {
         {heroSlides.map((slide, idx) => (
           <SwiperSlide
             key={`hero-${idx}`}
-            className="!overflow-hidden [&:not(.swiper-slide-active)]:!scale-100 !scale-125 !transition-transform !duration-[2000ms] !ease-in-out"
+            className="overflow-hidden! [&:not(.swiper-slide-active)]:scale-100! scale-125! transition-transform! duration-2000! ease-in-out!"
           >
             <HeroSlideContent
               slide={slide}

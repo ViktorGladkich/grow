@@ -38,7 +38,7 @@ export default function QuoteSlide({ activeIndex }) {
 
           {/* Decorative line */}
           <motion.div
-            className="mx-auto mt-6 h-[2px] rounded-full bg-gradient-to-r from-transparent via-eco-green/50 to-transparent"
+            className="mx-auto mt-6 h-[2px] rounded-full bg-linear-to-r from-transparent via-eco-green/50 to-transparent"
             initial={{ width: 0 }}
             animate={activeIndex === 9 ? { width: "120px" } : {}}
             transition={{ duration: 1.5, delay: 0.8 }}

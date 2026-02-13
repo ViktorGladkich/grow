@@ -40,10 +40,10 @@ export default function BlogSlide({ activeIndex }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
           {blogArticles.map((a, i) => (
             <div key={i} className="h-full">
-              <GlassCard className="group h-full overflow-hidden !p-0">
+              <GlassCard className="group h-full overflow-hidden p-0!">
                 {/* Gradient header */}
                 <div
-                  className={`bg-gradient-to-br ${cardColors[i]} px-6 pt-6 pb-4 relative`}
+                  className={`bg-linear-to-br ${cardColors[i]} px-6 pt-6 pb-4 relative`}
                 >
                   <div className="absolute top-3 right-3 w-16 h-16 rounded-full bg-white/5 blur-xl" />
                   <span
@@ -72,7 +72,7 @@ export default function BlogSlide({ activeIndex }) {
                   {/* Read progress bar */}
                   <div className="h-0.5 bg-white/5 rounded-full mb-4 overflow-hidden">
                     <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-eco-green to-[#54c955]"
+                      className="h-full rounded-full bg-linear-to-r from-eco-green to-[#54c955]"
                       initial={{ width: 0 }}
                       whileHover={{ width: "100%" }}
                       transition={{ duration: 0.6 }}

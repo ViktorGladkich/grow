@@ -66,7 +66,7 @@ export default function MissionSlide({ activeIndex }) {
               <GlassCard>
                 <div
                   className="w-14 h-14 flex items-center justify-center rounded-2xl
-                  bg-gradient-to-br from-eco-green/15 to-eco-green/5
+                  bg-linear-to-br from-eco-green/15 to-eco-green/5
                   border border-eco-green/20 mb-4
                   shadow-[0_0_25px_rgba(148,222,29,0.1)]"
                 >

@@ -37,7 +37,7 @@ export default function TestimonialsSlide({ activeIndex }) {
           >
             <div className="flex items-center gap-1.5 px-4 py-1.5 bg-yellow-400/10 rounded-full border border-yellow-400/20">
               <ThumbsUp className="w-3.5 h-3.5 text-yellow-400" />
-              <span className="text-[0.65em] font-bold text-yellow-400 uppercase tracking-[0.1em]">
+              <span className="text-[0.65em] font-bold text-yellow-400 uppercase tracking-widest">
                 98% satisfaction
               </span>
             </div>
@@ -93,7 +93,7 @@ export default function TestimonialsSlide({ activeIndex }) {
                 <div className="flex items-center gap-3 pt-4 border-t border-white/5">
                   <div className="relative">
                     <div
-                      className="w-11 h-11 rounded-full bg-gradient-to-br from-eco-green to-[#54c955]
+                      className="w-11 h-11 rounded-full bg-linear-to-br from-eco-green to-[#54c955]
                       flex items-center justify-center font-black text-eco-dark
                       shadow-[0_0_20px_rgba(148,222,29,0.3)]
                       ring-2 ring-eco-green/20 ring-offset-2 ring-offset-transparent"
@@ -107,7 +107,7 @@ export default function TestimonialsSlide({ activeIndex }) {
                     <strong className="block text-[0.82em] font-bold">
                       {t.name}
                     </strong>
-                    <span className="block text-[0.62em] text-eco-gray uppercase tracking-[0.1em]">
+                    <span className="block text-[0.62em] text-eco-gray uppercase tracking-widest">
                       {t.role}
                     </span>
                   </div>

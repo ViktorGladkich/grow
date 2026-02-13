@@ -43,7 +43,7 @@ export default function ProjectsSlide({ activeIndex }) {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <div
-                      className={`w-9 h-9 rounded-lg bg-gradient-to-br ${countryIcons[i].color}
+                      className={`w-9 h-9 rounded-lg bg-linear-to-br ${countryIcons[i].color}
                       flex items-center justify-center text-lg border border-white/10`}
                     >
                       {countryIcons[i].flag}
