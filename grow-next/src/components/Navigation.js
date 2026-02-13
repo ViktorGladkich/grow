@@ -23,10 +23,10 @@ export default function Navigation({ activeIndex, goTo }) {
           whileHover={{ scale: 1.05 }}
           className="shrink-0 pointer-events-auto"
         >
-          <img src="/img/logo.svg" alt="Grow" className="w-28 md:w-36" />
+          <img src="/img/logo.svg" alt="Grow" className="w-36 md:w-44" />
         </motion.a>
 
-        <ul className="flex-1 hidden md:flex justify-center gap-1 pointer-events-auto">
+        <ul className="flex-1 hidden md:flex justify-center gap-2 pointer-events-auto">
           {navItems.map((item) => (
             <li key={item.index}>
               <motion.button
@@ -34,7 +34,7 @@ export default function Navigation({ activeIndex, goTo }) {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => goTo(item.index)}
                 className={`
-                  text-[0.62em] uppercase font-bold tracking-[0.2em] px-3 py-1
+                  text-[0.78em] uppercase font-bold tracking-[0.18em] px-4 py-1.5
                   relative cursor-pointer transition-colors duration-300
                   ${activeIndex === item.index ? "text-white" : "text-white/50 hover:text-white"}
                 `}
@@ -62,8 +62,8 @@ export default function Navigation({ activeIndex, goTo }) {
           }}
           whileTap={{ scale: 0.95 }}
           onClick={() => goTo(10)}
-          className="hidden md:block shrink-0 px-5 py-2 border-[1.5px] border-eco-green text-white
-            rounded-[10em_0_10em_10em] text-[0.62em] font-bold uppercase tracking-[0.2em]
+          className="hidden md:block shrink-0 px-6 py-2.5 border-[1.5px] border-eco-green text-white
+            rounded-[10em_0_10em_10em] text-[0.78em] font-bold uppercase tracking-[0.18em]
             cursor-pointer transition-all duration-300 pointer-events-auto"
         >
           Plant Now
@@ -78,17 +78,17 @@ export default function Navigation({ activeIndex, goTo }) {
         className="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-[100]
           flex flex-col items-center gap-2"
       >
-        <span className="text-[0.6em] font-black tracking-wider text-white">
+        <span className="text-[0.75em] font-black tracking-wider text-white">
           {String(activeIndex + 1).padStart(2, "0")}
         </span>
-        <div className="w-0.5 h-20 bg-white/10 rounded-full overflow-hidden">
+        <div className="w-1 h-28 bg-white/10 rounded-full overflow-hidden">
           <motion.div
             className="w-full bg-eco-green rounded-full"
             animate={{ height: `${((activeIndex + 1) / TOTAL_SLIDES) * 100}%` }}
             transition={{ duration: 0.5 }}
           />
         </div>
-        <span className="text-[0.6em] font-black tracking-wider text-white/30">
+        <span className="text-[0.75em] font-black tracking-wider text-white/30">
           {String(TOTAL_SLIDES).padStart(2, "0")}
         </span>
       </motion.div>
