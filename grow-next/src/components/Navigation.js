@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, TreePine } from "lucide-react";
 import { navItems, TOTAL_SLIDES } from "./data";
@@ -29,7 +30,14 @@ export default function Navigation({ activeIndex, goTo }) {
           whileHover={{ scale: 1.05 }}
           className="shrink-0 pointer-events-auto flex items-center gap-2"
         >
-          <img src="/img/logo.svg" alt="Grow" className="w-36 md:w-44" />
+          <Image
+            src="/img/logo.svg"
+            alt="Grow"
+            width={176}
+            height={44}
+            className="w-36 md:w-44 h-auto"
+            priority
+          />
         </motion.a>
 
         {/* Desktop nav links */}
