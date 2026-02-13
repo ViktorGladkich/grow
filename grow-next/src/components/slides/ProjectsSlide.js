@@ -8,58 +8,11 @@ import {
   SlideSection,
   AnimatedContent,
   GlassCard,
+  Donut,
   Tag,
   Title,
   Highlight,
 } from "../ui";
-
-/* Circular progress donut */
-function Donut({ progress, active, delay }) {
-  const r = 28;
-  const circ = 2 * Math.PI * r;
-
-  return (
-    <div className="relative w-18 h-18">
-      <svg className="w-full h-full -rotate-90" viewBox="0 0 72 72">
-        <circle
-          cx="36"
-          cy="36"
-          r={r}
-          fill="none"
-          stroke="rgba(255,255,255,0.06)"
-          strokeWidth="4"
-        />
-        <motion.circle
-          cx="36"
-          cy="36"
-          r={r}
-          fill="none"
-          stroke="url(#projGrad)"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeDasharray={circ}
-          initial={{ strokeDashoffset: circ }}
-          animate={
-            active ? { strokeDashoffset: circ * (1 - progress / 100) } : {}
-          }
-          transition={{ duration: 1.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ filter: "drop-shadow(0 0 4px rgba(148,222,29,0.4))" }}
-        />
-        <defs>
-          <linearGradient id="projGrad">
-            <stop offset="0%" stopColor="#94de1d" />
-            <stop offset="100%" stopColor="#54c955" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-[0.75em] font-black text-eco-green">
-          {progress}%
-        </span>
-      </div>
-    </div>
-  );
-}
 
 const countryIcons = [
   { flag: "🇧🇷", color: "from-green-500/20 to-yellow-500/10" },
@@ -73,7 +26,7 @@ export default function ProjectsSlide({ activeIndex }) {
   return (
     <SlideSection bg={sectionBgs.projects} overlay={0.78}>
       <AnimatedContent isActive={isActive}>
-        <div className="text-center">
+        <motion.div className="text-center">
           <Tag>
             <FolderKanban className="inline w-3.5 h-3.5 mr-1.5 -mt-0.5" />{" "}
             Active Projects
@@ -81,15 +34,12 @@ export default function ProjectsSlide({ activeIndex }) {
           <Title>
             Where We&apos;re <Highlight>Growing</Highlight>
           </Title>
-        </div>
-        <motion.div
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6"
-        >
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
           {projects.map((p, i) => (
-            <motion.div key={i} variants={fadeUp} custom={i}>
+            <div key={i}>
               <GlassCard className="h-full">
-                {/* Country header with gradient */}
+                {/* Country header */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <div
@@ -147,9 +97,9 @@ export default function ProjectsSlide({ activeIndex }) {
                   <div className="ml-auto w-2 h-2 rounded-full bg-eco-green animate-glow-pulse" />
                 </div>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </AnimatedContent>
     </SlideSection>
   );

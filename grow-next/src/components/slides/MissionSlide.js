@@ -3,40 +3,17 @@
 import { motion } from "framer-motion";
 import { Sprout, TreePine, Droplets, Sun } from "lucide-react";
 import { missionFeatures, sectionBgs } from "../data";
-import { scaleIn, fadeUp, staggerContainer } from "../animations";
+import { scaleIn, staggerContainer } from "../animations";
 import {
   SlideSection,
   AnimatedContent,
   GlassCard,
+  StatPill,
   Tag,
   Title,
   Highlight,
   Subtitle,
 } from "../ui";
-
-/* Mini stat pill for the top row */
-function StatPill({ icon: Icon, value, label, delay, active }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={active ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
-      className="flex items-center gap-2.5 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm"
-    >
-      <div className="w-8 h-8 rounded-full bg-eco-green/15 flex items-center justify-center">
-        <Icon className="w-4 h-4 text-eco-green" />
-      </div>
-      <div className="text-left">
-        <div className="text-sm font-black text-eco-green leading-none">
-          {value}
-        </div>
-        <div className="text-[0.55em] uppercase tracking-[0.15em] text-eco-gray font-semibold">
-          {label}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 export default function MissionSlide({ activeIndex }) {
   const isActive = activeIndex === 3;
@@ -44,7 +21,7 @@ export default function MissionSlide({ activeIndex }) {
   return (
     <SlideSection bg={sectionBgs.mission} overlay={0.78}>
       <AnimatedContent isActive={isActive}>
-        <div className="text-center">
+        <motion.div className="text-center">
           <Tag>
             <Sprout className="inline w-3.5 h-3.5 mr-1.5 -mt-0.5" /> Our Mission
           </Tag>
@@ -55,9 +32,9 @@ export default function MissionSlide({ activeIndex }) {
             Founded in 2018, GROW started with a simple idea: make environmental
             action accessible to everyone.
           </Subtitle>
-        </div>
+        </motion.div>
 
-        {/* ── Stat pills row ── */}
+        {/* Stat pills row */}
         <div className="flex flex-wrap justify-center gap-3 mb-8">
           <StatPill
             icon={TreePine}
@@ -82,13 +59,10 @@ export default function MissionSlide({ activeIndex }) {
           />
         </div>
 
-        {/* ── Feature cards ── */}
-        <motion.div
-          variants={staggerContainer}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
-        >
+        {/* Feature cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {missionFeatures.map((f, i) => (
-            <motion.div key={i} variants={scaleIn} custom={i}>
+            <div key={i}>
               <GlassCard>
                 <div
                   className="w-14 h-14 flex items-center justify-center rounded-2xl
@@ -108,9 +82,9 @@ export default function MissionSlide({ activeIndex }) {
                   {f.text}
                 </p>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </AnimatedContent>
     </SlideSection>
   );

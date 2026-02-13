@@ -20,7 +20,7 @@ export default function TestimonialsSlide({ activeIndex }) {
   return (
     <SlideSection bg={sectionBgs.testimonials} overlay={0.82}>
       <AnimatedContent isActive={isActive}>
-        <div className="text-center">
+        <motion.div className="text-center">
           <Tag>
             <MessageCircle className="inline w-3.5 h-3.5 mr-1.5 -mt-0.5" />{" "}
             Voices
@@ -50,14 +50,11 @@ export default function TestimonialsSlide({ activeIndex }) {
               ))}
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
-        <motion.div
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4">
           {testimonials.map((t, i) => (
-            <motion.div key={i} variants={scaleIn} custom={i}>
+            <div key={i}>
               <GlassCard className="text-left relative h-full">
                 {/* Floating quote icon */}
                 <motion.div
@@ -116,9 +113,9 @@ export default function TestimonialsSlide({ activeIndex }) {
                   </div>
                 </div>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </AnimatedContent>
     </SlideSection>
   );

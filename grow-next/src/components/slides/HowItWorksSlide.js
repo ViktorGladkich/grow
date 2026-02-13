@@ -21,57 +21,21 @@ export default function HowItWorksSlide({ activeIndex }) {
   return (
     <SlideSection bg={sectionBgs.howItWorks} overlay={0.8}>
       <AnimatedContent isActive={isActive}>
-        <div className="text-center">
+        <motion.div className="text-center">
           <Tag>
             <Leaf className="inline w-3.5 h-3.5 mr-1.5 -mt-0.5" /> How It Works
           </Tag>
           <Title>
             From Seed to <Highlight>Forest</Highlight>
           </Title>
-        </div>
+        </motion.div>
 
-        <motion.div
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 relative"
-        >
-          {/* Animated connecting line */}
-          <div className="hidden md:block absolute top-14 left-[20%] right-[20%] h-[2px] overflow-hidden z-0">
-            <motion.div
-              className="h-full w-full"
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, #94de1d, transparent)",
-              }}
-              initial={{ scaleX: 0 }}
-              animate={isActive ? { scaleX: 1 } : { scaleX: 0 }}
-              transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-            />
-          </div>
-
-          {/* Pulsing dots on the line */}
-          {[33, 66].map((pos) => (
-            <motion.div
-              key={pos}
-              className="hidden md:block absolute top-[52px] z-10"
-              style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={isActive ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: 1.0 }}
-            >
-              <div className="w-3 h-3 rounded-full bg-eco-green shadow-[0_0_12px_rgba(148,222,29,0.6)] animate-glow-pulse" />
-            </motion.div>
-          ))}
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
           {steps.map((s, i) => {
             const StepIcon = stepIcons[i];
             return (
-              <motion.div
-                key={i}
-                variants={i % 2 === 0 ? fadeUp : fadeDown}
-                custom={i}
-                className="relative z-10"
-              >
-                <GlassCard className="text-center">
+              <div key={i} className="h-full">
+                <GlassCard className="text-center h-full">
                   {/* Step number circle with icon */}
                   <div className="relative mx-auto mb-5 w-20 h-20">
                     {/* Outer ring */}
@@ -142,10 +106,10 @@ export default function HowItWorksSlide({ activeIndex }) {
                     {s.text}
                   </p>
                 </GlassCard>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       </AnimatedContent>
     </SlideSection>
   );

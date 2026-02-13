@@ -11,7 +11,7 @@ export default function QuoteSlide({ activeIndex }) {
       <AnimatedContent isActive={activeIndex === 9}>
         <motion.blockquote
           variants={fadeUp}
-          className="max-w-[800px] mx-auto text-center relative"
+          className="max-w-[800px] mx-auto text-center relative z-10"
         >
           {/* Decorative glowing orbs */}
           <div className="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-eco-green/5 blur-3xl animate-float pointer-events-none" />

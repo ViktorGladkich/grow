@@ -35,7 +35,7 @@ export default function NewsletterSlide({ activeIndex }) {
   return (
     <SlideSection bg={sectionBgs.newsletter} overlay={0.88}>
       <AnimatedContent isActive={activeIndex === 10}>
-        <div className="text-center">
+        <motion.div className="text-center">
           <Tag>
             <Mail className="inline w-3.5 h-3.5 mr-1.5 -mt-0.5" /> Stay
             Connected
@@ -47,7 +47,7 @@ export default function NewsletterSlide({ activeIndex }) {
             Get monthly stories, project updates, and tips for sustainable
             living.
           </Subtitle>
-        </div>
+        </motion.div>
 
         {/* Form with animated border */}
         <motion.form

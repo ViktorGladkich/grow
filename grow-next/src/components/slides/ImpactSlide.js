@@ -8,55 +8,11 @@ import {
   SlideSection,
   AnimatedContent,
   Counter,
+  CircleRing,
   Tag,
   Title,
   Highlight,
 } from "../ui";
-
-/* Circular progress ring */
-function CircleRing({ fill, active, delay = 0 }) {
-  const r = 42;
-  const circumference = 2 * Math.PI * r;
-
-  return (
-    <svg className="w-28 h-28 -rotate-90 mx-auto mb-3" viewBox="0 0 100 100">
-      {/* Background ring */}
-      <circle
-        cx="50"
-        cy="50"
-        r={r}
-        fill="none"
-        stroke="rgba(255,255,255,0.05)"
-        strokeWidth="5"
-      />
-      {/* Animated fill ring */}
-      <motion.circle
-        cx="50"
-        cy="50"
-        r={r}
-        fill="none"
-        stroke="url(#impactGrad)"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeDasharray={circumference}
-        initial={{ strokeDashoffset: circumference }}
-        animate={
-          active ? { strokeDashoffset: circumference * (1 - fill / 100) } : {}
-        }
-        transition={{ duration: 2, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-        style={{ filter: "drop-shadow(0 0 6px rgba(148,222,29,0.4))" }}
-      />
-      {/* Glow dot at end */}
-      <defs>
-        <linearGradient id="impactGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#94de1d" />
-          <stop offset="50%" stopColor="#b8f03e" />
-          <stop offset="100%" stopColor="#54c955" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-}
 
 export default function ImpactSlide({ activeIndex }) {
   const isActive = activeIndex === 5;
@@ -64,7 +20,7 @@ export default function ImpactSlide({ activeIndex }) {
   return (
     <SlideSection bg={sectionBgs.impact} overlay={0.75}>
       <AnimatedContent isActive={isActive}>
-        <div className="text-center">
+        <motion.div className="text-center">
           <Tag>
             <BarChart3 className="inline w-3.5 h-3.5 mr-1.5 -mt-0.5" /> Our
             Impact
@@ -83,7 +39,7 @@ export default function ImpactSlide({ activeIndex }) {
             <TrendingUp className="w-4 h-4" />
             <span>+23% growth year over year</span>
           </motion.div>
-        </div>
+        </motion.div>
 
         <motion.div
           variants={staggerContainer}
@@ -106,14 +62,12 @@ export default function ImpactSlide({ activeIndex }) {
               />
 
               <div className="relative z-10">
-                {/* Circular ring */}
                 <CircleRing
                   fill={stat.fill}
                   active={isActive}
                   delay={i * 0.2}
                 />
 
-                {/* Counter inside */}
                 <div className="-mt-[5.5rem] mb-12 relative z-20">
                   <Counter count={stat.count} active={isActive} />
                 </div>

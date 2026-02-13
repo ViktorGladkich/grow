@@ -28,7 +28,7 @@ export default function BlogSlide({ activeIndex }) {
   return (
     <SlideSection bg={sectionBgs.blog} overlay={0.82}>
       <AnimatedContent isActive={activeIndex === 6}>
-        <div className="text-center">
+        <motion.div className="text-center">
           <Tag>
             <BookOpen className="inline w-3.5 h-3.5 mr-1.5 -mt-0.5" /> Eco
             Journal
@@ -36,19 +36,10 @@ export default function BlogSlide({ activeIndex }) {
           <Title>
             Stories from the <Highlight>Field</Highlight>
           </Title>
-        </div>
-        <motion.div
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6"
-        >
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
           {blogArticles.map((a, i) => (
-            <motion.div
-              key={i}
-              variants={
-                i === 0 ? slideFromLeft : i === 2 ? slideFromRight : fadeUp
-              }
-              custom={i}
-            >
+            <div key={i} className="h-full">
               <GlassCard className="group h-full overflow-hidden !p-0">
                 {/* Gradient header */}
                 <div
@@ -98,9 +89,9 @@ export default function BlogSlide({ activeIndex }) {
                   </motion.span>
                 </div>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </AnimatedContent>
     </SlideSection>
   );
