@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════
+   CUSTOM FONTS
+   ═══════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════
+   TAILWIND v4 THEME
+   ═══════════════════════════════════════════════════ */
+
+@theme {
+  --color-eco-green: #94de1d;
+  --color-eco-green-hover: #7bc919;
+  --color-eco-green-dim: rgba(148, 222, 29, 0.08);
+  --color-eco-green-border: rgba(148, 222, 29, 0.15);
+  --color-eco-dark: #1a2f32;
+  --color-eco-darker: #0d1f22;
+  --color-eco-darkest: #0a1a1d;
+  --color-eco-mid: #1e3538;
+  --color-eco-gray: #aeb4a6;
+  --color-eco-glass: rgba(255, 255, 255, 0.04);
+  --color-eco-glass-border: rgba(255, 255, 255, 0.07);
+
+  --font-family-mont: "Montserrat", sans-serif;
+
+  --animate-scroll-dot: scroll-dot 2s ease-in-out infinite;
+  --animate-scroll-bounce: scroll-bounce 2s ease-in-out infinite;
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-pulse-green: pulse-green 2s ease-in-out infinite;
+
+  @keyframes scroll-dot {
+    0%,
+    100% {
+      top: 5px;
+      opacity: 1;
+    }
+    50% {
+      top: 17px;
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes scroll-bounce {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(6px);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes pulse-green {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   BASE LAYER
+   ═══════════════════════════════════════════════════ */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family-mont);
+    background-color: var(--color-eco-dark);
+    color: white;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  button {
+    font-family: var(--font-family-mont);
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+}
