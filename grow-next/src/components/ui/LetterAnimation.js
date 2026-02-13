@@ -31,9 +31,9 @@ export default function LetterAnimation({ word, isActive }) {
       variants={container}
       initial="hidden"
       animate={isActive ? "visible" : "hidden"}
-      className="text-[calc((1vw+1vh)*9)] md:text-[calc((1vw+1vh)*11)] font-black uppercase leading-[0.9] tracking-tighter
+      className="text-[13vw] md:text-[calc((1vw+1vh)*10)] lg:text-[calc((1vw+1vh)*11)] font-black uppercase leading-[0.9] tracking-tighter
         text-white
-        drop-shadow-lg flex justify-center overflow-visible py-4 text-shadow-md select-none"
+        drop-shadow-lg flex flex-wrap justify-center overflow-visible py-4 text-shadow-md select-none max-w-full"
     >
       {word.split("").map((char, i) => (
         <motion.span key={i} variants={child} className="inline-block relative">

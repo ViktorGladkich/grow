@@ -15,7 +15,7 @@ export default function GlassCard({ children, className = "", hover = true }) {
           : undefined
       }
       className={`
-        bg-[rgba(255,255,255,0.07)] border border-white/10 rounded-2xl p-6
+        bg-[rgba(255,255,255,0.07)] border border-white/10 rounded-2xl p-4 sm:p-5 md:p-6
         backdrop-blur-xl shadow-lg
         cursor-pointer transition-all duration-400
         hover:bg-[rgba(30,50,40,0.4)] hover:border-eco-green/30 hover:shadow-eco-green/10
